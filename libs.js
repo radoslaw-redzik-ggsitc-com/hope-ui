@@ -8,7 +8,7 @@
  *
  * Date: 2023-08-28T13:37Z
  */
-!function(e, t) {
+function(e, t) {
     "use strict";
     "object" == typeof module && "object" == typeof module.exports ? module.exports = e.document ? t(e, !0) : function(e) {
         if (!e.document)
