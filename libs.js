@@ -18864,4 +18864,4 @@ function(e, t) {
 }
 ));
 
-var $h = jQuery.noConflict();
+var $ = jQuery.noConflict();
