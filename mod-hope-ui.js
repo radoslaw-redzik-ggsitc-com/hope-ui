@@ -83,6 +83,7 @@ if (typeof bootstrap !== typeof undefined) {
 /*---------------------------------------------------------------------
               Circle Progress
 -----------------------------------------------------------------------*/
+// nasluchuj na nowe elementy dodane na stronie
 $('body').on('DOMNodeInserted', '.circle-progress', function(e) {
   initializeProgressBar(e.target);
 });
