@@ -520,7 +520,10 @@ window.addEventListener('load', function () {
                 }
                 if (node.matches('div.circle-progress')) {
                     initializeProgressBar(node);
+                } else {
+                   Array.from(node.querySelectorAll('div.circle-progress')).forEach(initializeProgressBar);
                 }
+              
             }
         }
     });
