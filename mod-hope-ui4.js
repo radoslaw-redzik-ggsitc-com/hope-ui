@@ -9,7 +9,9 @@
 /*----------------------------------------------
 Index Of Script
 ------------------------------------------------
+
 ------- Plugin Init --------
+
 :: Sticky-Nav
 :: Popover
 :: Tooltip
@@ -22,12 +24,16 @@ Index Of Script
 :: Data Tables
 :: Active Class for Pricing Table
 :: AOS Animation Plugin
+
 ------ Functions --------
+
 :: Resize Plugins
 :: Loader Init
 :: Sidebar Toggle
 :: Back To Top
+
 ------- Listners ---------
+
 :: DOMContentLoaded
 :: Window Resize
 :: DropDown
@@ -509,6 +515,9 @@ window.addEventListener('load', function () {
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
+                if(!('matches' in node)) {
+                  continue;
+                }
                 if (node.matches('div.circular-progress')) {
                     initializeProgressBar(node);
                 }
