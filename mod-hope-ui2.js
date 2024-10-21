@@ -9,9 +9,7 @@
 /*----------------------------------------------
 Index Of Script
 ------------------------------------------------
-
 ------- Plugin Init --------
-
 :: Sticky-Nav
 :: Popover
 :: Tooltip
@@ -24,16 +22,12 @@ Index Of Script
 :: Data Tables
 :: Active Class for Pricing Table
 :: AOS Animation Plugin
-
 ------ Functions --------
-
 :: Resize Plugins
 :: Loader Init
 :: Sidebar Toggle
 :: Back To Top
-
 ------- Listners ---------
-
 :: DOMContentLoaded
 :: Window Resize
 :: DropDown
@@ -524,6 +518,7 @@ window.addEventListener('load', function () {
 
     observer.observe(document.body, {
         subtree: true,
+      childList: true
     });
 
 })();
