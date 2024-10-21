@@ -518,7 +518,7 @@ window.addEventListener('load', function () {
                 if(!('matches' in node)) {
                   continue;
                 }
-                if (node.matches('div.circular-progress')) {
+                if (node.matches('div.circle-progress')) {
                     initializeProgressBar(node);
                 }
             }
