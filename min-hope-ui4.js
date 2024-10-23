@@ -225,7 +225,7 @@ if (tableTh !== null) {
 /*---------------------------------------------------------------------
               AOS Animation Plugin
 -----------------------------------------------------------------------*/
-/*
+
 if (typeof AOS !== typeof undefined) {
     AOS.init({
         startEvent: 'DOMContentLoaded',
