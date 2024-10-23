@@ -178,7 +178,7 @@ Array.from(document.querySelectorAll('[data-toggle="slider-tab"]'), (elem) => {
         new SliderTab(elem)
     }
 })
-
+*/
 let Scrollbar
 if (typeof Scrollbar !== typeof null) {
     if (document.querySelectorAll(".data-scrollbar").length) {
