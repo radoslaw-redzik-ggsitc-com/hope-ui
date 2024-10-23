@@ -489,6 +489,5 @@ window.addEventListener('load', function () {
     })
 
 
-})
+})();
 */
-();
