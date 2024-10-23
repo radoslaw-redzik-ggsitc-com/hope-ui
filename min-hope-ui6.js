@@ -296,7 +296,7 @@ const sidebarToggle = (elem) => {
         }
     })
 }
-/*
+
 const sidebarToggleBtn = document.querySelectorAll('[data-toggle="sidebar"]')
 const sidebar = document.querySelector('.sidebar-default')
 if (sidebar !== null) {
