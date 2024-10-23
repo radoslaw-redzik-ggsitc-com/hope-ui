@@ -43,9 +43,6 @@ Index Of Script
 Index Of Script
 ----------------------------------------------*/
 "use strict";
-delete window.module;
-delete window.exports;
-
 
 /*---------------------------------------------------------------------
               Sticky-Nav
