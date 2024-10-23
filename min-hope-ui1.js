@@ -4,6 +4,7 @@
 /*---------------------------------------------------------------------
               Sticky-Nav
 -----------------------------------------------------------------------*/
+/*
 window.addEventListener('scroll', function () {
     let yOffset = document.documentElement.scrollTop;
     let navbar = document.querySelector(".navs-sticky")
@@ -18,6 +19,7 @@ window.addEventListener('scroll', function () {
 /*---------------------------------------------------------------------
               Popover
 -----------------------------------------------------------------------*/
+/*
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 if (typeof bootstrap !== typeof undefined) {
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -27,6 +29,7 @@ if (typeof bootstrap !== typeof undefined) {
 /*---------------------------------------------------------------------
                 Tooltip
 -----------------------------------------------------------------------*/
+/*
 if (typeof bootstrap !== typeof undefined) {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -41,6 +44,7 @@ if (typeof bootstrap !== typeof undefined) {
 /*---------------------------------------------------------------------
               Circle Progress
 -----------------------------------------------------------------------*/
+/*
 function initializeProgressBar(elem) {
     const minValue = elem.getAttribute('data-min-value')
     const maxValue = elem.getAttribute('data-max-value')
@@ -60,6 +64,7 @@ Array.from(document.querySelectorAll('div.circle-progress')).forEach(initializeP
 /*---------------------------------------------------------------------
               Progress Bar
 -----------------------------------------------------------------------*/
+/*
 const progressBarInit = (elem) => {
     const currentValue = elem.getAttribute('aria-valuenow')
     elem.style.width = '0%'
@@ -83,6 +88,7 @@ Array.from(customProgressBar, (elem) => {
 /*---------------------------------------------------------------------
                  noUiSlider
 -----------------------------------------------------------------------*/
+/*
 const rangeSlider = document.querySelectorAll('.range-slider');
 Array.from(rangeSlider, (elem) => {
     if (typeof noUiSlider !== typeof undefined) {
@@ -113,6 +119,7 @@ Array.from(slider, (elem) => {
 /*---------------------------------------------------------------------
               Copy To Clipboard
 -----------------------------------------------------------------------*/
+/*
 const copy = document.querySelectorAll('[data-toggle="copy"]')
 if (typeof copy !== typeof undefined) {
     Array.from(copy, (elem) => {
@@ -142,6 +149,7 @@ if (typeof copy !== typeof undefined) {
 /*---------------------------------------------------------------------
               CounterUp 2
 -----------------------------------------------------------------------*/
+/*
 if (window.counterUp !== undefined) {
     const counterUp = window.counterUp["default"];
     const counterUp2 = document.querySelectorAll('.counter')
@@ -164,6 +172,7 @@ if (window.counterUp !== undefined) {
 /*---------------------------------------------------------------------
               SliderTab
 -----------------------------------------------------------------------*/
+/*
 Array.from(document.querySelectorAll('[data-toggle="slider-tab"]'), (elem) => {
     if (typeof SliderTab !== typeof undefined) {
         new SliderTab(elem)
@@ -193,6 +202,7 @@ if ($.fn.DataTable) {
 /*---------------------------------------------------------------------
   Active Class for Pricing Table
 -----------------------------------------------------------------------*/
+/*
 const tableTh = document.querySelectorAll('#my-table tr th')
 const tableTd = document.querySelectorAll('#my-table td')
 if (tableTh !== null) {
@@ -215,6 +225,7 @@ if (tableTh !== null) {
 /*---------------------------------------------------------------------
               AOS Animation Plugin
 -----------------------------------------------------------------------*/
+/*
 if (typeof AOS !== typeof undefined) {
     AOS.init({
         startEvent: 'DOMContentLoaded',
@@ -262,6 +273,7 @@ const resizePlugins = () => {
 /*---------------------------------------------------------------------
               LoaderInit
 -----------------------------------------------------------------------*/
+/*
 const loaderInit = () => {
     const loader = document.querySelector('.loader')
     setTimeout(() => {
@@ -284,7 +296,7 @@ const sidebarToggle = (elem) => {
         }
     })
 }
-
+/*
 const sidebarToggleBtn = document.querySelectorAll('[data-toggle="sidebar"]')
 const sidebar = document.querySelector('.sidebar-default')
 if (sidebar !== null) {
@@ -305,6 +317,7 @@ Array.from(sidebarToggleBtn, (sidebarBtn) => {
 /*---------------------------------------------------------------------------
                             Back To Top
 ----------------------------------------------------------------------------*/
+/*
 const backToTop = document.getElementById("back-to-top")
 if (backToTop !== null && backToTop !== undefined) {
     document.getElementById("back-to-top").classList.add("animate__animated", "animate__fadeOut")
@@ -328,7 +341,7 @@ if (backToTop !== null && backToTop !== undefined) {
 -----------------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', (event) => {
     resizePlugins()
-    loaderInit()
+    //loaderInit()
 });
 /*---------------------------------------------------------------------
               Window Resize
@@ -339,6 +352,7 @@ window.addEventListener('resize', function (event) {
 /*---------------------------------------------------------------------
 | | | | | DropDown
 -----------------------------------------------------------------------*/
+/*
 function darken_screen(yesno) {
     if (yesno == true) {
         if (document.querySelector('.screen-darken') !== null) {
@@ -394,6 +408,7 @@ if (document.querySelector('#navbarSideCollapse')) {
 /*---------------------------------------------------------------------
                                    Form Validation
 -----------------------------------------------------------------------*/
+/*
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 window.addEventListener('load', function () {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -414,6 +429,7 @@ window.addEventListener('load', function () {
     /*----------------------------------------------------------
                                Flatpickr
     -------------------------------------------------------------*/
+/*
     const date_flatpickr = document.querySelectorAll('.date_flatpicker')
     Array.from(date_flatpickr, (elem) => {
         if (typeof flatpickr !== typeof undefined) {
@@ -424,6 +440,7 @@ window.addEventListener('load', function () {
         }
     })
     /*----------Range Flatpickr--------------*/
+/*
     const range_flatpicker = document.querySelectorAll('.range_flatpicker')
     Array.from(range_flatpicker, (elem) => {
         if (typeof flatpickr !== typeof undefined) {
@@ -435,6 +452,7 @@ window.addEventListener('load', function () {
         }
     })
     /*------------Wrap Flatpickr---------------*/
+/*
     const wrap_flatpicker = document.querySelectorAll('.wrap_flatpicker')
     Array.from(wrap_flatpicker, (elem) => {
         if (typeof flatpickr !== typeof undefined) {
@@ -446,6 +464,7 @@ window.addEventListener('load', function () {
         }
     })
     /*-------------Time Flatpickr---------------*/
+/*
     const time_flatpickr = document.querySelectorAll('.time_flatpicker')
     Array.from(time_flatpickr, (elem) => {
         if (typeof flatpickr !== typeof undefined) {
@@ -457,6 +476,7 @@ window.addEventListener('load', function () {
         }
     })
     /*-------------Inline Flatpickr-----------------*/
+/*
     const inline_flatpickr = document.querySelectorAll('.inline_flatpickr')
     Array.from(inline_flatpickr, (elem) => {
         if (typeof flatpickr !== typeof undefined) {
@@ -467,6 +487,6 @@ window.addEventListener('load', function () {
             })
         }
     })
-
+*/
 
 })();
