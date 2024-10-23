@@ -1,6 +1,3 @@
-delete window.module;
-delete window.exports;
-
 /* change
 * Version: 1.2.0
 * Template: Hope-Ui - Responsive Bootstrap 5 Admin Dashboard Template
@@ -46,6 +43,8 @@ Index Of Script
 Index Of Script
 ----------------------------------------------*/
 "use strict";
+delete window.module;
+delete window.exports;
 
 
 /*---------------------------------------------------------------------
