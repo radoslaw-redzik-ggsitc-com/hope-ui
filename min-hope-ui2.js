@@ -487,6 +487,8 @@ window.addEventListener('load', function () {
             })
         }
     })
-*/
 
-})();
+
+})
+*/
+();
