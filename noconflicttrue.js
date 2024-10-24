@@ -1,1 +1,1 @@
-const hopeUIJquery = $.noConflict(true);
+hopeUIJquery = $.noConflict(true);
