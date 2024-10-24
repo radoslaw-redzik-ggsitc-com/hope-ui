@@ -84,7 +84,7 @@ if (typeof bootstrap !== typeof undefined) {
 /*---------------------------------------------------------------------
               Circle Progress
 -----------------------------------------------------------------------*/
-function initializeProgressBar(elem) {
+setupComponent('div.circle-progress', function initializeProgressBar(elem) {
     const minValue = elem.getAttribute('data-min-value')
     const maxValue = elem.getAttribute('data-max-value')
     const value = elem.getAttribute('data-value')
@@ -97,13 +97,12 @@ function initializeProgressBar(elem) {
             textFormat: type,
         });
     }
-}
+});
 
-Array.from(document.querySelectorAll('div.circle-progress')).forEach(initializeProgressBar);
 /*---------------------------------------------------------------------
               Progress Bar
 -----------------------------------------------------------------------*/
-const progressBarInit = (elem) => {
+setupComponent('[data-toggle="progress-bar"]', (elem) => {
     const currentValue = elem.getAttribute('aria-valuenow')
     elem.style.width = '0%'
     elem.style.transition = 'width 2s'
@@ -118,16 +117,12 @@ const progressBarInit = (elem) => {
             offset: 'bottom-in-view',
         })
     }
-}
-const customProgressBar = document.querySelectorAll('[data-toggle="progress-bar"]')
-Array.from(customProgressBar, (elem) => {
-    progressBarInit(elem)
-})
+});
 /*---------------------------------------------------------------------
                  noUiSlider
 -----------------------------------------------------------------------*/
-const rangeSlider = document.querySelectorAll('.range-slider');
-Array.from(rangeSlider, (elem) => {
+
+setupComponent('.range-slider', (elem) => {
     if (typeof noUiSlider !== typeof undefined) {
         noUiSlider.create(elem, {
             start: [20, 80],
@@ -139,48 +134,43 @@ Array.from(rangeSlider, (elem) => {
         })
     }
 })
-
-const slider = document.querySelectorAll('.slider');
-Array.from(slider, (elem) => {
+setupComponent('.slider', (elem) => {
     if (typeof noUiSlider !== typeof undefined) {
         noUiSlider.create(elem, {
-            start: 50,
-            connect: [true, false],
+            start: [20, 80],
+            connect: true,
             range: {
                 'min': 0,
                 'max': 100
             }
         })
     }
-})
+});
 /*---------------------------------------------------------------------
               Copy To Clipboard
 -----------------------------------------------------------------------*/
-const copy = document.querySelectorAll('[data-toggle="copy"]')
-if (typeof copy !== typeof undefined) {
-    Array.from(copy, (elem) => {
-        elem.addEventListener('click', (e) => {
-            const target = elem.getAttribute("data-copy-target");
-            let value = elem.getAttribute("data-copy-value");
-            const container = document.querySelector(target);
-            if (container !== undefined && container !== null) {
-                if (container.value !== undefined && container.value !== null) {
-                    value = container.value;
-                } else {
-                    value = container.innerHTML;
-                }
+setupComponent('[data-toggle="copy"]', (elem) => {
+    elem.addEventListener('click', (e) => {
+        const target = elem.getAttribute("data-copy-target");
+        let value = elem.getAttribute("data-copy-value");
+        const container = document.querySelector(target);
+        if (container !== undefined && container !== null) {
+            if (container.value !== undefined && container.value !== null) {
+                value = container.value;
+            } else {
+                value = container.innerHTML;
             }
-            if (value !== null) {
-                const elem = document.createElement("input");
-                document.querySelector("body").appendChild(elem);
-                elem.value = value;
-                elem.select();
-                document.execCommand("copy");
-                elem.remove();
-            }
-        })
-    });
-}
+        }
+        if (value !== null) {
+            const elem = document.createElement("input");
+            document.querySelector("body").appendChild(elem);
+            elem.value = value;
+            elem.select();
+            document.execCommand("copy");
+            elem.remove();
+        }
+    })
+});
 
 /*---------------------------------------------------------------------
               CounterUp 2
@@ -207,25 +197,22 @@ if (window.counterUp !== undefined) {
 /*---------------------------------------------------------------------
               SliderTab
 -----------------------------------------------------------------------*/
-Array.from(document.querySelectorAll('[data-toggle="slider-tab"]'), (elem) => {
+setupComponent('[data-toggle="slider-tab"]', (elem) => {
     if (typeof SliderTab !== typeof undefined) {
         new SliderTab(elem)
     }
-})
+});
 
-let Scrollbar
-if (typeof Scrollbar !== typeof null) {
-    if (document.querySelectorAll(".data-scrollbar").length) {
-        Scrollbar = window.Scrollbar
-        Scrollbar.init(document.querySelector('.data-scrollbar'), {
-            continuousScrolling: false,
-        })
-    }
-}
+setupComponent(".data-scrollbar", elem => {
+    Scrollbar.init(elem, {
+        continuousScrolling: false,
+    })
+});
 
 /*---------------------------------------------------------------------
   Data tables
 -----------------------------------------------------------------------*/
+
 if ($.fn.DataTable) {
     if ($('[data-toggle="data-table"]').length) {
         const table = $('[data-toggle="data-table"]').DataTable({
@@ -363,7 +350,7 @@ if (backToTop !== null && backToTop !== undefined) {
     // scroll body to 0px on click
     document.querySelector('#top').addEventListener('click', (e) => {
         e.preventDefault()
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({top: 0, behavior: 'smooth'});
     })
 }
 /*---------------------------------------------------------------------
@@ -379,6 +366,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 window.addEventListener('resize', function (event) {
     resizePlugins()
 });
+
 /*---------------------------------------------------------------------
 | | | | | DropDown
 -----------------------------------------------------------------------*/
@@ -387,13 +375,13 @@ function darken_screen(yesno) {
         if (document.querySelector('.screen-darken') !== null) {
             document.querySelector('.screen-darken').classList.add('active');
         }
-    }
-    else if (yesno == false) {
+    } else if (yesno == false) {
         if (document.querySelector('.screen-darken') !== null) {
             document.querySelector('.screen-darken').classList.remove('active');
         }
     }
 }
+
 function close_offcanvas() {
     darken_screen(false);
     if (document.querySelector('.mobile-offcanvas.show') !== null) {
@@ -401,6 +389,7 @@ function close_offcanvas() {
         document.body.classList.remove('offcanvas-active');
     }
 }
+
 function show_offcanvas(offcanvas_id) {
     darken_screen(true);
     if (document.getElementById(offcanvas_id) !== null) {
@@ -408,6 +397,7 @@ function show_offcanvas(offcanvas_id) {
         document.body.classList.add('offcanvas-active');
     }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('[data-trigger]').forEach(function (everyelement) {
         let offcanvas_id = everyelement.getAttribute('data-trigger');
@@ -510,26 +500,5 @@ window.addEventListener('load', function () {
             })
         }
     })
-
-    const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                if(!('matches' in node)) {
-                  continue;
-                }
-                if (node.matches('div.circle-progress')) {
-                    initializeProgressBar(node);
-                } else {
-                   Array.from(node.querySelectorAll('div.circle-progress')).forEach(initializeProgressBar);
-                }
-              
-            }
-        }
-    });
-
-    observer.observe(document.body, {
-        subtree: true,
-      childList: true
-    });
 
 })();
