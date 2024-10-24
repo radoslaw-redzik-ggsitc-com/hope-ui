@@ -253,7 +253,11 @@
         let timeout;
 
         function reinitializeSwiper() {
-
+            swiper.destroy(true, true);
+            timeout && clearTimeout(timeout);
+            setTimeout(() => {
+                swiper = new Swiper('.d-slider1', options);
+            }, 200);
         }
 
         document.addEventListener('ChangeMode', (e) => {
@@ -262,13 +266,7 @@
             }
         })
 
-        return () => {
-            swiper.destroy(true, true);
-            timeout && clearTimeout(timeout);
-            setTimeout(() => {
-                swiper = new Swiper('.d-slider1', options);
-            }, 200);
-        };
+        return reinitializeSwiper;
     })())
 
 
