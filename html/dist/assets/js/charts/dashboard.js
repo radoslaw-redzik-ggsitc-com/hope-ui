@@ -217,8 +217,8 @@
         })
     }
 
-    setupComponent('.d-slider1', (() => {
-
+    const SLIDER_SELECTOR = '.d-slider1';
+    setupComponent(SLIDER_SELECTOR, (() => {
         const options = {
             centeredSlides: false,
             loop: false,
@@ -249,14 +249,22 @@
             }
         }
 
-        let swiper = new Swiper('.d-slider1', options);
+
+        let swiper;
+        if (document.querySelector(SLIDER_SELECTOR)) {
+            swiper = new Swiper(SLIDER_SELECTOR, options);
+        }
+
         let timeout;
 
         function reinitializeSwiper() {
-            swiper.destroy(true, true);
+            swiper && swiper.destroy(true, true);
+            swiper = undefined;
             timeout && clearTimeout(timeout);
             setTimeout(() => {
-                swiper = new Swiper('.d-slider1', options);
+                if (document.querySelector(SLIDER_SELECTOR)) {
+                    swiper = new Swiper('.d-slider1', options);
+                }
             }, 200);
         }
 
