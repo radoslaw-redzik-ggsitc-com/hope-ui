@@ -1,5 +1,7 @@
 
 "use strict";
+delete window.module;
+delete window.exports;
 
 /*---------------------------------------------------------------------
               Sticky-Nav
