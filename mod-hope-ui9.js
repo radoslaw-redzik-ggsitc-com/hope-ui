@@ -248,10 +248,12 @@ if (tableTh !== null) {
 if (typeof AOS !== typeof undefined) {
     AOS.init({
         startEvent: 'DOMContentLoaded',
+        /*
         disable: function () {
             var maxWidth = 996;
             return window.innerWidth < maxWidth;
         },
+        */
         throttleDelay: 10,
         once: true,
         duration: 700,
